@@ -1,0 +1,18 @@
+@each $colorName, $color in $colors {
+	.txt.#{$colorName} {
+    	color: $color;
+	}
+
+	.fill.#{$colorName} {
+		fill: $color;
+	}
+
+	.bg.#{$colorName} {
+    	background-color: $color;
+	}
+}
+
+
+.clearfix{
+	@include clearfix;
+}

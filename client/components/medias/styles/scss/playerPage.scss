@@ -1,0 +1,176 @@
+@import "colors";
+@import "mixins";
+@import "utils";
+@import "texts";
+@import "resets";
+@import "base";
+@import "buttons";
+
+
+#playerPage{
+	header{
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+	    flex-wrap: wrap;
+		padding-top: 20px;
+
+		.btn{
+			width: 20%;
+		}
+
+		.headerContent{
+			width: 80%;
+			padding: 0 5%;
+			text-align: center;
+			@include clearfix;
+
+			.avatar{
+				float: right;
+				@include avatar(64px);
+			}
+		}
+	}
+	
+	#pageContent{
+		text-align: center;
+			
+		.albumThumb{
+			display: inline-block;
+			vertical-align: top;
+			width: 100%;
+			height: 48.6vh;
+			margin-top: -10px;
+			border-radius: 10px;
+			overflow: hidden;
+
+			img{
+				display: block;
+				max-width: 100%;
+				height: 100%;
+				margin: 0 auto;
+			}
+		}
+
+		.albumText{
+			margin-top: 40px;
+
+			.currentMusic{
+				display: block;
+				width: 100%;
+				margin-bottom: 6px;
+				overflow: hidden;
+				white-space: nowrap;
+				font-size: $fontM;
+				line-height: $fontM;
+				text-transform: uppercase;
+				letter-spacing: 0.14em;
+				color: $white;
+			}
+
+			.artistName{
+				display: inline-block;
+				font-size: $fontXS;
+				line-height: $fontXS;
+				color: $greyLight;
+
+				&:after{
+					content: '-';
+					display: inline-block;
+					vertical-align: middle;
+					margin: 0 2px;
+				}
+			}
+
+			.albumName{
+				display: inline-block;
+				font-size: $fontXS;
+				line-height: $fontXS;
+				color: $pink;
+			}
+		}
+
+
+		.playerContainer{
+			margin-top: 30px;
+
+			.playerControls{
+				display: flex;
+			    justify-content: center;
+			    align-items: center;
+
+			    .btn{
+			    	margin: 0 10%;
+			    }
+			}
+
+			.playerSeekbar{
+				margin-top: 20px;
+				@include clearfix;
+
+				.currentTime,
+				.duration{
+					font-size: $fontXXS;
+					color: $greyLight;
+				}
+
+				.currentTime{
+					float: left;
+				}
+				.duration{
+					float: right;
+				}
+
+				.seekBarContainer{
+					background: $white;
+					clear: left;
+					width: 100%;
+					height: 4px;
+					position: relative;
+					margin-top: 10px;
+					border-radius: 4px;
+
+					.progressBar{
+						@include gradient;
+						height: 4px;
+						position: absolute;
+						left: 0;
+						top: 0;
+
+						.disc{
+							background: $white;
+							width: 24px;
+							height: 24px;
+							position: absolute;
+							top: 50%;
+							right: 0;
+							margin-top: -12px;
+							border-radius: 100%;
+						}
+					}
+				}
+			}
+
+
+			.playerOptions{
+				display: flex;
+				justify-content: center;
+			    align-items: center;
+			    margin-top: 14px;
+
+				.left,
+				.right{
+					width: 20%;
+				}
+
+				.center{
+					width: 60%;
+				}
+
+				.btn{
+					line-height: 0;
+				}
+			}
+		}
+	}
+}

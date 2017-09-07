@@ -1,0 +1,93 @@
+@import "colors";
+@import "mixins";
+@import "utils";
+@import "texts";
+@import "resets";
+@import "base";
+@import "buttons";
+
+.playerFooter{
+	background: $greyDark;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	box-shadow: 0 -10px 40px rgba(0,0,0,0.7);
+
+	.albumItem{
+		width: 80%;
+
+		.albumThumb{
+			display: inline-block;
+			vertical-align: top;
+			width: 72px;
+			height: 72px;
+			border-radius: 3px;
+			overflow: hidden;
+
+			img{
+				display: block;
+				max-width: 100%;
+			}
+		}
+
+		.albumText{
+			display: inline-block;
+			vertical-align: top;
+			width: calc(100% - 72px);
+			position: relative;
+			padding-left: 25px;
+
+			&:after{
+				content: '';
+				width: 20px;
+				position: absolute;
+				top: 0;
+				right: -20px;
+				bottom: 0;
+				z-index: 10;
+				box-shadow: -5px 0 10px $greyDark;
+			}
+
+			.currentMusic{
+				display: block;
+				width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				font-size: $fontM;
+				line-height: $fontM;
+				text-transform: uppercase;
+				letter-spacing: 0.14em;
+				color: $white;
+			}
+
+			.artistName{
+				display: inline-block;
+				font-size: $fontXS;
+				line-height: $fontXS;
+				color: $greyLight;
+
+				&:after{
+					content: '-';
+					display: inline-block;
+					vertical-align: middle;
+					margin: 0 2px;
+				}
+			}
+
+			.albumName{
+				display: inline-block;
+				font-size: $fontXS;
+				line-height: $fontXS;
+				color: $pink;
+			}
+		}		
+	}
+
+	.btn{
+		width: 20%;
+	}
+}

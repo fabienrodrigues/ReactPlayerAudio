@@ -1,0 +1,104 @@
+// --- TYPOS ---
+// -------------
+	$fontXXS: 12px;
+	$fontXS	: 13px;
+	$fontS	: 16px;
+	$fontM	: 21px;
+	$fontL	: 30px;
+	$fontXL	: 58px;
+
+
+	h1{
+		position: relative;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		@include fontBd;
+		font-size: $fontXL;
+		line-height: 50px;
+		text-transform: uppercase;
+	}
+
+	h2{
+		position: relative;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		@include fontBd;
+		font-size: $fontL;
+		line-height: $fontL;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	h3{
+		margin-bottom: 5px;
+		@include fontBd;
+		font-size: $fontS;
+		line-height: $fontS;
+		text-transform: uppercase;
+	}
+
+	h4{
+		text-transform: uppercase;
+		@include fontBd;
+		font-size: $fontM;
+		line-height: $fontM;
+		color: $white;
+	}
+
+	h5{
+		@include font;
+		font-size: $fontXS;
+		line-height: $fontM;
+
+		strong{
+			@include fontBd;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+
+	.small{
+		font-size: $fontXS;
+		line-height: $fontXS + 2;
+	}
+
+	.extra_small{
+		font-size: $fontXXS;
+		line-height: $fontXXS + 2;
+	}	
+
+
+	// TEXTS COLORS
+	@each $colorName, $color in $colors {
+		.txt_#{$colorName} {
+			color: $color;
+		}
+	}
+
+	// HEADINGS BAR COLOR
+	@each $colorName, $color in $colors {
+		.#{$colorName} {
+			h1.border,
+			h2{
+				&:after{
+					background-color: $color;
+				}
+			}
+
+			h3{
+				color: $color;
+			}
+		}
+	}
+// --- /TYPOS ---
+
+
+// SURLIGNEMENT DES TEXTES
+/* ::-moz-selection{background: $black; color: $white;}
+::-moz-selection{background: $black; color: $white;}
+::-webkit-selection{background: $black; color: $white;}
+::selection{background: $black; color: $white;} */
+

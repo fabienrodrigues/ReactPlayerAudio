@@ -1,0 +1,101 @@
+@import "colors";
+@import "mixins";
+@import "utils";
+@import "texts";
+@import "resets";
+@import "base";
+@import "buttons";
+
+
+#albumPage{
+	header{
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+	    flex-wrap: wrap;
+		padding-top: 20px;
+		//overflow: hidden;
+
+		.headerBg{
+			width: calc(100% + 40px);
+			height: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			opacity: 0.2;
+			overflow: hidden;
+			transform: translate(-50%, -50%);
+
+			img{
+				width: 100%;
+			}
+		}
+
+		.btn{
+			width: 20%;
+		}
+
+		.headerContent{
+			width: 60%;
+			padding: 0 5%;
+			text-align: center;
+
+			.albumName{
+				display: block;
+				text-transform: uppercase;
+				font-size: $fontM;
+				line-height: $fontM;
+				letter-spacing: 0.13em;
+			}
+
+			.artistName{
+				display: block;
+				margin-top: 5px;
+				font-size: $fontS;
+				color: $greyLight;
+			}
+
+			.avatar{
+				position: absolute;
+				bottom: -20px;
+				margin-top: 20px;
+				@include avatar(92px);
+			}
+		}
+	}
+
+	.musicsList{
+		padding-top: 30px;
+		padding-bottom: 100px;
+
+		.musicItem{
+			padding: 20px 10px;
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid rgba($grey,0.3);
+
+			.musicText{
+				width: 80%;
+
+				.musicName{
+					font-size: $fontS;
+					color: $white;
+				}
+
+				.artistName{
+					margin-top: 5px;
+					font-size: $fontXS;
+					color: $grey;
+				}
+			}
+			
+			.btn{
+				width: 20%;
+			}
+
+			&:last-child{
+				border: none;
+			}
+		}
+	}
+}

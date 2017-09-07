@@ -1,0 +1,77 @@
+@import "colors";
+@import "mixins";
+@import "utils";
+@import "texts";
+@import "resets";
+@import "base";
+@import "buttons";
+
+
+#artistPage{
+	header{
+		display: flex;
+		justify-content: center;
+		align-content: flex-start;
+
+		.headerContent{
+			padding: 0 5%;
+			text-align: center;
+
+			.avatar{
+				@include avatar(64px);
+			}
+
+			.artistName{
+				display: inline-block;
+				vertical-align: middle;
+				max-width: calc(100% - 64px);
+				padding-left: 15px;
+				text-transform: uppercase;
+				text-align: left;
+				font-size: $fontM;
+				line-height: $fontM;
+				letter-spacing: 0.02em;
+			}
+		}
+	}
+
+	.albumsList{
+		margin: 0 -10px;
+		padding-top: 30px;
+		@include clearfix;
+
+		.albumItem{
+			float: left;
+			width: 50%;
+			margin-bottom: 26px;
+			padding: 0 10px;
+			text-align: center;
+
+			.albumThumb{
+				margin-bottom: 18px;
+				border-radius: 3px;
+				overflow: hidden;
+
+				img{
+					display: block;
+					max-width: 100%;
+				}
+			}
+
+			.albumText{
+				display: flex;
+    			flex-direction: column-reverse;
+			}
+
+			.albumName{
+				font-size: $fontS;
+				color: $white;
+			}
+
+			.artistName{
+				font-size: $fontXS;
+				color: $grey;
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+.btn{
+	background: none;
+	display: inline-block;
+	padding: 10px;
+	border: none;
+
+	&.primary{
+		@include gradient;
+		display: block;
+		width: 100%;
+		padding: 27px;
+		font-size: $fontM;
+		line-height: $fontM;
+		color: $white;
+		border-radius: 40px;
+	}
+}

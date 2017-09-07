@@ -1,0 +1,261 @@
+.errorForm {
+    font-weight: bold;
+    color:$error;
+}
+
+.successForm {
+    font-weight: bold;
+    color:$success;
+}
+
+
+.singleForm{
+    display: block;
+    margin-bottom: 20px;
+}
+
+label{
+    display: inline-block;
+    position: relative;
+    @include font;
+    font-size: $fontS;
+    color: $greyDark;
+}
+
+button[type=submit]{
+    background: none;
+    border: none;
+}
+
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+textarea{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba($white,0.5);
+    padding: 27px;
+    text-align: center;
+    text-decoration: none;
+    font-size: $fontS;
+    color: $white;
+    @include easeInOut(0.2s);
+
+    // SUPPRIME LE FOND JAUNE DE CHROME
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $white inset;
+        -webkit-text-fill-color: $greyDark;
+    }
+
+    & ~ .message{
+        display: none;
+        font-size: $fontXS;
+    }
+
+    &:focus{
+        border-color: rgba($white,0.7);
+    }
+
+    .error &{
+        border: none;
+        border-bottom: 1px solid $error;
+        color:$error;
+
+        & ~ .message{
+            display: block;
+            color: $error;
+        }
+    }
+
+    .success &,
+    .not &{
+        border-color: rgba($greyDark, 0.5);
+
+        & ~ .message{
+            display: none;
+        }
+    }
+}
+
+// OVERRIED FIREFOX STYLE ON ERROR
+:-moz-ui-invalid:not(output) {
+    box-shadow: none!important;
+}
+
+textarea{
+    height: 34px;
+    resize: none;
+}
+
+// --- CUSTOM CHECKBOX / RADIO ---
+input[type=checkbox],
+input[type=radio]{
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0 5px 0 0;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked{
+        & + .checkbox{
+            &:before,
+            &:after{
+                content: '';
+                opacity: 1;
+                transition-delay: 0s;
+            }
+            &:after{
+                transition-delay: 0.1s;
+            }
+        }
+
+        & + .radio{
+            &:before{
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+
+    .msie &{
+        opacity: 1;
+    }
+    .msie.no_touch &:hover{
+        border-color: $greyDark;
+    }
+
+    .error &{
+        & ~ .checkbox,
+        & ~ .radio{
+            background: $error;
+        }
+    }
+}
+
+.checkbox,
+.radio{
+    background: white;
+    border: 2px solid $greyDark;
+    position: absolute;
+    margin: 1px 0 0 -22px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    pointer-events: none;
+    border-radius: 2px;
+
+    &:before,
+    &:after{
+        content:'';
+        background: $greyDark;
+        width: 4px;
+        height: 12px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: rotate(45deg) translate(-4px, -5px);
+        @include easeInOut(0.25s);
+        transition-delay: 0s;
+    }
+    &:before{
+        height: 7px;
+        transform: rotate(-45deg) translate(-1px, -5px);
+        transition-delay: 0.1s;
+    }
+
+
+    .msie &{
+        display: none;
+    }
+}
+
+.radio{
+    border-radius: 100%;
+
+    &:before{
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    &:after{
+        display: none;
+    }
+}
+
+// CHOSEN SELECT
+select{
+    /* background: url(../../images/icons/single/arrow_select.svg) right 0 center no-repeat $white;
+    background-size: 30px; */
+    height: 30px;
+    padding: 2px 40px 2px 5px;
+    border: 2px solid $greyDark;
+    font-size: $fontS;
+    color: $greyDark;
+    cursor: pointer;
+    -webkit-appearance: none;
+
+    option{
+        background: $white;
+        padding: 1px 10px;
+        color: $greyDark;
+        border: none;
+    }
+
+    .error &{
+        border-color: $error;
+    }
+
+    .success &{
+        color: $greyDark;
+        border-bottom: 1px solid rgba($greyDark, 0.3);
+    }
+}
+
+
+// COULEUR PLACEHOLDER
+::-webkit-input-placeholder { color: $white; opacity: 0.5!important; }
+:-moz-placeholder { color: $white; opacity: 0.5;}
+::-moz-placeholder {color: $white; opacity: 0.5;}
+:-ms-input-placeholder {color: $white;}
+
+.error::-webkit-input-placeholder { color: $error; opacity: 1!important; }
+.error:-moz-placeholder { color: $error; opacity: 1;}
+.error::-moz-placeholder {color: $error; opacity: 1;}
+.error:-ms-input-placeholder {color: $error;}
+
+
+// SINGLE FORM
+.single_form{
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    
+    label{
+        position: absolute;
+        top: 18px;
+        left: 0;
+        cursor: pointer;
+        @include easeInOut(0.2s);
+    }
+
+    &.active{
+        label{
+            top: 0;
+            font-size: $fontXS;
+            color: rgba($greyDark, 0.5);
+        }
+
+        textarea{
+            height: 100px;
+        }
+    }
+}

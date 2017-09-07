@@ -1,0 +1,35 @@
+$grey: #656567;
+$greyLight: #c2c2c2;
+$greyDark: #25242a;
+$pink: #dc4c70;
+$orange: #e06e6d;
+$white: #fff;
+$error: #fe4f19;
+$success: #43d32b;
+
+
+/* --- COLORS --- */
+$colors: (
+	'grey'		: #656567,
+	'greyLight'	: #c2c2c2,
+	'greyDark'	: #25242a,
+	'pink'		: #dc4c70,
+	'orange'	: #e06e6d,
+	'white'		: #fff,
+	'error'		: #fe4f19,
+	'success'	: #43d32b
+);
+
+
+/* @function color($key, $colorsList) {
+    @return map-get($colorsList, $key);
+} */
+
+@function color($key) {
+	@if map-has-key($colors, $key) {
+		@return map-get($colors, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $colors.";
+	@return null;
+}
